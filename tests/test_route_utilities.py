@@ -5,7 +5,6 @@ import pytest
 
 def test_validate_model(two_saved_books):
     # Act
-    # Add `Book` argument to `validate_model` invocation
     result_book = validate_model(Book, 1)
 
     # Assert
@@ -18,11 +17,11 @@ def test_validate_model_missing_record(two_saved_books):
     # Calling `validate_model` without being invoked by a route will
     # cause an `HTTPException` when an `abort` statement is reached 
     with pytest.raises(HTTPException):
-        result_book = validate_model("3")
+        result_book = validate_model(Book, "3")
     
 def test_validate_model_invalid_id(two_saved_books):
     # Act & Assert
     # Calling `validate_model` without being invoked by a route will
     # cause an `HTTPException` when an `abort` statement is reached 
     with pytest.raises(HTTPException):
-        result_book = validate_model("cat")
+        result_book = validate_model(Book, "cat")
