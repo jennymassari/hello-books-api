@@ -124,7 +124,7 @@ def update_book(book_id):
     book.description = request_body['description']
     db.session.commit()
 
-    return Response(status=204, mimetype="application/json")
+    return f"Book #{book_id} successfully updated"
 
 @bp.delete("/<book_id>")
 def delete_book(book_id):
@@ -132,4 +132,4 @@ def delete_book(book_id):
     db.session.delete(book)
     db.session.commit()
 
-    return Response(status=204, mimetype="application/json")
+    return f"Book #{book_id} successfully deleted"
