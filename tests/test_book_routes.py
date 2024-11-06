@@ -53,7 +53,7 @@ def test_update_book(client, two_saved_books):
 
     # Assert
     assert response.status_code == 200
-    assert response_body == "Book #1 successfully updated"
+    assert response_body == {"message": "Book #1 successfully updated"}
 
 def test_update_book_with_extra_keys(client, two_saved_books):
     # Arrange
@@ -70,7 +70,7 @@ def test_update_book_with_extra_keys(client, two_saved_books):
 
     # Assert
     assert response.status_code == 200
-    assert response_body == "Book #1 successfully updated"
+    assert response_body == {"message": "Book #1 successfully updated"}
 
 def test_update_book_missing_record(client, two_saved_books):
     # Arrange
@@ -109,7 +109,7 @@ def test_delete_book(client, two_saved_books):
 
     # Assert
     assert response.status_code == 200
-    assert response_body == "Book #1 successfully deleted"
+    assert response_body == {"message": "Book #1 successfully deleted"}
 
 def test_delete_book_missing_record(client, two_saved_books):
     # Act
